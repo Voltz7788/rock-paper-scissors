@@ -24,49 +24,19 @@ function getPlayerChoice() {
 
 function playRound(cpuChoice, playerChoice) {
 
-    // If player chooses 'rock' conditions
-    if (playerChoice === 'rock') {
-        if (cpuChoice === 'rock') {
-            console.log('It\'s a tie!');
-            return('tie');
-        } else if (cpuChoice === 'scissors') {
-            console.log('You win!');
-            return('player win');
-        } else if (cpuChoice === 'paper') {
-            console.log('You lose!');
-            return('cpu win');
-        }    
-    } 
-    
-    // If player chooses 'paper' conditions
-    else if (playerChoice === 'paper') {
-        if (cpuChoice === 'paper') {
-            console.log('It\'s a tie!');
-            return('tie');
-        } else if (cpuChoice === 'rock') {
-            console.log('You win!');
-            return('player win');
-        } else if (cpuChoice === 'scissors') {
-            console.log('You lose!');
-            return('cpu win');
-        }
-    } 
-    
-    // If player chooses 'scissors' conditions
-    else if (playerChoice === 'scissors') {
-        if (cpuChoice === 'scissors') {
-            console.log('It\'s a tie!');
-            return('tie');
-        } else if (cpuChoice === 'paper') {
-            console.log('You win!');
-            return('player win');
-        } else if (cpuChoice === 'rock') {
-            console.log('You lose!');
-            return('cpu win');
-        }
-    }
+    if ((playerChoice === cpuChoice)) {
+        console.log('It\'s a tie!')
+    } else if ((playerChoice === 'rock' && cpuChoice === 'scissors')
+            || (playerChoice === 'scissors' && cpuChoice === 'paper')
+            || (playerChoice === 'paper' && cpuChoice === 'rock')
+            ) {
+                console.log('You win!')
+                return('player win')
+            } else {
+                console.log('You lose!')
+                return('cpu win')
+            }
 }
-
 
 
 // Full Game function
