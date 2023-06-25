@@ -1,26 +1,24 @@
+// Sub-functions
 function getComputerChoice() {
     cpuChoice = Math.floor(Math.random() * 3) + 1;
     if (cpuChoice === 1) {
-        console.log(cpuChoice);
         return 'rock';
     } else if (cpuChoice === 2) {
-        console.log(cpuChoice);
         return 'paper';
     } else {
-        console.log(cpuChoice);
         return 'scissors';
     }
 }
 
 
 function getPlayerChoice() {
-    playerChoice = prompt('Rock, paper or scissors?:').toLowerCase()
+    playerChoice = prompt('Rock, paper or scissors?:').toLowerCase();
     if (playerChoice === 'rock' 
         || playerChoice === 'paper' 
         || playerChoice === 'scissors') {
-            return playerChoice
+            return playerChoice;
         } else {
-            console.log('Invalid choice. Please type rock, paper or scissors.')
+            console.log('Invalid choice. Please type rock, paper or scissors.');
         }
 }
 
@@ -29,33 +27,67 @@ function playRound(cpuChoice, playerChoice) {
     // If player chooses 'rock' conditions
     if (playerChoice === 'rock') {
         if (cpuChoice === 'rock') {
-            alert('It\'s a tie!')
+            console.log('It\'s a tie!');
+            return('tie');
         } else if (cpuChoice === 'scissors') {
-            alert('You win!')
+            console.log('You win!');
+            return('player win');
         } else if (cpuChoice === 'paper') {
-            alert('You lose!')
+            console.log('You lose!');
+            return('cpu win');
         }    
     } 
     
     // If player chooses 'paper' conditions
     else if (playerChoice === 'paper') {
         if (cpuChoice === 'paper') {
-            alert('It\'s a tie!')
+            console.log('It\'s a tie!');
+            return('tie');
         } else if (cpuChoice === 'rock') {
-            alert('You win!')
+            console.log('You win!');
+            return('player win');
         } else if (cpuChoice === 'scissors') {
-            alert('You lose!')
+            console.log('You lose!');
+            return('cpu win');
         }
     } 
     
     // If player chooses 'scissors' conditions
     else if (playerChoice === 'scissors') {
         if (cpuChoice === 'scissors') {
-            alert('It\'s a tie!')
+            console.log('It\'s a tie!');
+            return('tie');
         } else if (cpuChoice === 'paper') {
-            alert('You win!')
+            console.log('You win!');
+            return('player win');
         } else if (cpuChoice === 'rock') {
-            alert('You lose!')
+            console.log('You lose!');
+            return('cpu win');
         }
     }
 }
+
+
+
+// Full Game function
+
+function playGame() {
+    let playerScore = 0;
+    let cpuScore = 0;
+    
+    while (playerScore < 5 || cpuScore < 5) {
+
+        let result = playRound(getComputerChoice(), getPlayerChoice());
+
+        if (result === 'player win') {
+            playerScore++;
+        } else if (result === 'cpu win') {
+            cpuScore++;
+        }
+
+        console.log(`Player Score: ${playerScore} CPU Score: ${cpuScore}`)
+    }
+
+}
+
+playGame()
