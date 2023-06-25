@@ -75,7 +75,7 @@ function playGame() {
     let playerScore = 0;
     let cpuScore = 0;
     
-    while (playerScore < 5 || cpuScore < 5) {
+    while (playerScore < 5 && cpuScore < 5) {
 
         let result = playRound(getComputerChoice(), getPlayerChoice());
 
@@ -87,6 +87,13 @@ function playGame() {
 
         console.log(`Player Score: ${playerScore} CPU Score: ${cpuScore}`)
     }
+
+    if (playerScore === 5) {
+        console.log('Congrats! You\'ve won the game!')
+    } else if (cpuScore === 5) {
+        console.log('Game over! You lost :(')
+    }
+    
 
 }
 
