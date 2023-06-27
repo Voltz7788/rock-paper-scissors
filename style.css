@@ -4,9 +4,9 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.rock,
-.paper,
-.scissors {
+#rock,
+#paper,
+#scissors {
     border: solid;
     border-color: white;
     border-radius: 15px;

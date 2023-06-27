@@ -8,7 +8,7 @@ function getComputerChoice() {
     } else {
         return 'scissors';
     }
-}
+};
 
 
 function getPlayerChoice() {
@@ -20,7 +20,7 @@ function getPlayerChoice() {
         } else {
             console.log('Invalid choice. Please type rock, paper or scissors.');
         }
-}
+};
 
 function playRound(cpuChoice, playerChoice) {
 
@@ -36,7 +36,7 @@ function playRound(cpuChoice, playerChoice) {
                 console.log('You lose!')
                 return('cpu win')
             }
-}
+};
 
 
 // Full Game function
@@ -65,5 +65,19 @@ function playGame() {
     }
     
 
-}
+};
+
+
+
+
+// DOM Manipulation
+
+btns = document.querySelectorAll("button");
+
+btns.forEach((button) => {
+    button.addEventListener("click", () => {
+        alert(button.id);
+    })
+});
+
 
