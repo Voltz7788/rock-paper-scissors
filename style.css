@@ -1,0 +1,25 @@
+body {
+    background-color: #020f24;
+}
+
+.rock,
+.paper,
+.scissors {
+    border: solid;
+    border-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #020f24;
+    border-width: 3px;
+}
+
+.userButtons {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.img {
+    width: 90px;
+    height: 90px;
+}
