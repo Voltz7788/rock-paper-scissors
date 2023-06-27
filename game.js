@@ -10,6 +10,16 @@ function getComputerChoice() {
     }
 };
 
+function getPlayerChoice() {
+    btns = document.querySelectorAll("button");
+
+    btns.forEach((button) => {
+        button.addEventListener("click", () => {
+            playRound(getComputerChoice(), button.id)
+        });
+    });
+};
+
 
 function playRound(cpuChoice, playerChoice) {
         console.log(playerChoice);
@@ -21,8 +31,12 @@ function playRound(cpuChoice, playerChoice) {
             || (playerChoice === 'paper' && cpuChoice === 'rock')
             ) {
                 console.log('You win!')
+                let playerScore = document.querySelector("#playerScore")
+                playerScore.textContent = Number(playerScore.textContent) + 1;
                 return('player win')
             } else {
+                let cpuScore = document.querySelector("#cpuScore");
+                cpuScore.textContent = Number(cpuScore.textContent) + 1;
                 console.log('You lose!')
                 return('cpu win')
             }
@@ -66,14 +80,6 @@ function playGame() {
 
 // DOM Manipulation
 
-function getPlayerChoice() {
-    btns = document.querySelectorAll("button");
 
-    btns.forEach((button) => {
-        button.addEventListener("click", () => {
-            playRound(getComputerChoice(), button.id)
-        });
-    });
-};
 
 playGame()
