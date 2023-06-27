@@ -11,19 +11,9 @@ function getComputerChoice() {
 };
 
 
-function getPlayerChoice() {
-    playerChoice = prompt('Rock, paper or scissors?:').toLowerCase();
-    if (playerChoice === 'rock' 
-        || playerChoice === 'paper' 
-        || playerChoice === 'scissors') {
-            return playerChoice;
-        } else {
-            console.log('Invalid choice. Please type rock, paper or scissors.');
-        }
-};
-
 function playRound(cpuChoice, playerChoice) {
-
+        console.log(playerChoice);
+        console.log(cpuChoice);
     if ((playerChoice === cpuChoice)) {
         console.log('It\'s a tie!')
     } else if ((playerChoice === 'rock' && cpuChoice === 'scissors')
@@ -44,25 +34,29 @@ function playRound(cpuChoice, playerChoice) {
 function playGame() {
     let playerScore = 0;
     let cpuScore = 0;
+
+    getPlayerChoice()
     
-    while (playerScore < 5 && cpuScore < 5) {
+    // while (playerScore < 5 && cpuScore < 5) {
 
-        let result = playRound(getComputerChoice(), getPlayerChoice());
+    //     getPlayerChoice()
+        
+    //     let result = playRound(getComputerChoice(), getPlayerChoice());
 
-        if (result === 'player win') {
-            playerScore++;
-        } else if (result === 'cpu win') {
-            cpuScore++;
-        }
+    //     if (result === 'player win') {
+    //         playerScore++;
+    //     } else if (result === 'cpu win') {
+    //         cpuScore++;
+    //     }
 
-        console.log(`Player Score: ${playerScore} CPU Score: ${cpuScore}`)
-    }
+    //     console.log(`Player Score: ${playerScore} CPU Score: ${cpuScore}`)
+    // }
 
-    if (playerScore === 5) {
-        console.log('Congrats! You\'ve won the game!')
-    } else if (cpuScore === 5) {
-        console.log('Game over! You lost :(')
-    }
+    // if (playerScore === 5) {
+    //     console.log('Congrats! You\'ve won the game!')
+    // } else if (cpuScore === 5) {
+    //     console.log('Game over! You lost :(')
+    // }
     
 
 };
@@ -72,12 +66,14 @@ function playGame() {
 
 // DOM Manipulation
 
-btns = document.querySelectorAll("button");
+function getPlayerChoice() {
+    btns = document.querySelectorAll("button");
 
-btns.forEach((button) => {
-    button.addEventListener("click", () => {
-        alert(button.id);
-    })
-});
+    btns.forEach((button) => {
+        button.addEventListener("click", () => {
+            playRound(getComputerChoice(), button.id)
+        });
+    });
+};
 
-
+playGame()
