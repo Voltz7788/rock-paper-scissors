@@ -1,5 +1,7 @@
 body {
     background-color: #020f24;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .rock,
@@ -17,9 +19,41 @@ body {
     display: flex;
     justify-content: center;
     gap: 100px;
+    align-items: center;
+    margin-top: 60px;
 }
 
-.img {
-    width: 90px;
-    height: 90px;
+.buttonImg {
+    width: 70px;
+    height: 70px;
 }
+
+.scoreImg {
+    width: 110px;
+    height: 110px;
+}
+
+h1 {
+    font-size: 170px;
+    padding: 0;
+    margin: 0;
+}
+
+.scoreUI {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content:center;
+    margin-top: 180px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    margin-top: 60px;
+}
+
+/* .tags {
+    width: 200px;
+} */
