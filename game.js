@@ -30,14 +30,14 @@ function playRound(cpuChoice, playerChoice) {
             || (playerChoice === 'scissors' && cpuChoice === 'paper')
             || (playerChoice === 'paper' && cpuChoice === 'rock')
             ) {
-                console.log('You win!')
+                console.log('Round won')
                 let playerScore = document.querySelector("#playerScore")
                 playerScore.textContent = Number(playerScore.textContent) + 1;
                 return('player win')
             } else {
                 let cpuScore = document.querySelector("#cpuScore");
                 cpuScore.textContent = Number(cpuScore.textContent) + 1;
-                console.log('You lose!')
+                console.log('Round lost')
                 return('cpu win')
             }
 };
@@ -74,11 +74,6 @@ function playGame() {
     
 
 };
-
-
-
-
-// DOM Manipulation
 
 
 
