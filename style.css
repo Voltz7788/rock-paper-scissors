@@ -57,3 +57,11 @@ h2 {
 /* .tags {
     width: 200px;
 } */
+
+
+#roundStatus {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 40px;
+}

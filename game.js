@@ -24,20 +24,25 @@ function getPlayerChoice() {
 function playRound(cpuChoice, playerChoice) {
         console.log(playerChoice);
         console.log(cpuChoice);
+        let roundStatus = document.querySelector("#roundStatus")
+        
     if ((playerChoice === cpuChoice)) {
-        console.log('It\'s a tie!')
+        roundStatus.textContent = "Tie";;
+        console.log('It\'s a tie!');
     } else if ((playerChoice === 'rock' && cpuChoice === 'scissors')
             || (playerChoice === 'scissors' && cpuChoice === 'paper')
             || (playerChoice === 'paper' && cpuChoice === 'rock')
             ) {
-                console.log('Round won')
+                console.log('Round won');
                 let playerScore = document.querySelector("#playerScore")
                 playerScore.textContent = Number(playerScore.textContent) + 1;
-                return('player win')
+                roundStatus.textContent = "Round won";
+                return('player win');
             } else {
                 let cpuScore = document.querySelector("#cpuScore");
                 cpuScore.textContent = Number(cpuScore.textContent) + 1;
-                console.log('Round lost')
+                console.log('Round lost');
+                roundStatus.textContent = "Round lost";
                 return('cpu win')
             }
 };
