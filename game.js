@@ -1,11 +1,11 @@
 function getComputerChoice() {
     cpuChoice = Math.floor(Math.random() * 3) + 1;
     if (cpuChoice === 1) {
-        return 'rock';
+        return "rock";
     } else if (cpuChoice === 2) {
-        return 'paper';
+        return "paper";
     } else {
-        return 'scissors';
+        return "scissors";
     }
 };
 
@@ -25,9 +25,9 @@ function playRound(cpuChoice, playerChoice) {
         
     if ((playerChoice === cpuChoice)) {
         roundStatus.textContent = "Tie";;
-    } else if ((playerChoice === 'rock' && cpuChoice === 'scissors')
-            || (playerChoice === 'scissors' && cpuChoice === 'paper')
-            || (playerChoice === 'paper' && cpuChoice === 'rock')
+    } else if ((playerChoice === "rock" && cpuChoice === "scissors")
+            || (playerChoice === "scissors" && cpuChoice === "paper")
+            || (playerChoice === "paper" && cpuChoice === "rock")
             ) {
                 let playerScore = document.querySelector("#playerScore")
                 playerScore.textContent = Number(playerScore.textContent) + 1;
@@ -47,11 +47,9 @@ function playRound(cpuChoice, playerChoice) {
 
 function resultCheck() {
     if (pScore === 5) {
-        console.log('Congrats! You\'ve won the game!')
         clearGameUI()
         endScreen("You win!")
     } else if (cScore === 5) {
-        console.log('Game over! You lost :(')
         clearGameUI()
         endScreen("Game over!")
     }
