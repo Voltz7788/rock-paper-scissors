@@ -10,13 +10,13 @@
 <body>
 
     <div class="scoreUI">
-        <img src="./img/player.png" class="scoreImg" alt="image of a man emoji">
+        <img src="./img/player.png" id="playerImg" class="scoreImg" alt="image of a man emoji">
         <!-- <h2 class="tags">Player</h2> -->
         <h1 id="playerScore">0</h1>
-        <h1>-</h1>
+        <h1 id="hyphen">-</h1>
         <h1 id="cpuScore">0</h1>
         <!-- <h2 class="tags">CPU</h2> -->
-        <img src="./img/cpu.png" class="scoreImg" alt="image of a computer">
+        <img src="./img/cpu.png" id="cpuImg" class="scoreImg" alt="image of a computer">
     </div>
 
 
@@ -26,7 +26,7 @@
         <button id="scissors"><img src="./img/scissors.png" class="buttonImg" alt="image of scissors"></button>
     </div>
     
-    <h2>Pick your weapon!</h2>
+    <h2 id="weaponText">Pick your weapon!</h2>
     <div id="roundStatus"></div>
 </body>
 </html>

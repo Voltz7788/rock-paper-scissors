@@ -1,4 +1,3 @@
-// Sub-functions
 function getComputerChoice() {
     cpuChoice = Math.floor(Math.random() * 3) + 1;
     if (cpuChoice === 1) {
@@ -10,8 +9,8 @@ function getComputerChoice() {
     }
 };
 
-function getPlayerChoice() {
-    btns = document.querySelectorAll("button");
+function playGame() {
+    let btns = document.querySelectorAll("button");
 
     btns.forEach((button) => {
         button.addEventListener("click", () => {
@@ -22,64 +21,84 @@ function getPlayerChoice() {
 
 
 function playRound(cpuChoice, playerChoice) {
-        console.log(playerChoice);
-        console.log(cpuChoice);
-        let roundStatus = document.querySelector("#roundStatus")
+    let roundStatus = document.querySelector("#roundStatus")
         
     if ((playerChoice === cpuChoice)) {
         roundStatus.textContent = "Tie";;
-        console.log('It\'s a tie!');
     } else if ((playerChoice === 'rock' && cpuChoice === 'scissors')
             || (playerChoice === 'scissors' && cpuChoice === 'paper')
             || (playerChoice === 'paper' && cpuChoice === 'rock')
             ) {
-                console.log('Round won');
                 let playerScore = document.querySelector("#playerScore")
                 playerScore.textContent = Number(playerScore.textContent) + 1;
                 roundStatus.textContent = "Round won";
-                return('player win');
+                pScore++;
+                resultCheck();
             } else {
                 let cpuScore = document.querySelector("#cpuScore");
                 cpuScore.textContent = Number(cpuScore.textContent) + 1;
-                console.log('Round lost');
                 roundStatus.textContent = "Round lost";
-                return('cpu win')
+                cScore++;
+                resultCheck();
             }
+        
+    
+};
+
+function resultCheck() {
+    if (pScore === 5) {
+        console.log('Congrats! You\'ve won the game!')
+        clearGameUI()
+        endScreen("You win!")
+    } else if (cScore === 5) {
+        console.log('Game over! You lost :(')
+        clearGameUI()
+        endScreen("Game over!")
+    }
+};
+
+function endScreen(endGameAnnouncement) {
+    let body = document.querySelector("body");
+    let endGame = document.createElement("div");
+    endGame.textContent = (endGameAnnouncement);
+    endGame.id = "endGame"
+    body.appendChild(endGame);
+};
+
+
+
+
+function clearGameUI() {
+    // Clear buttons
+    let userButtons = document.querySelector("div.userButtons");
+    let buttonArray = [
+        document.querySelector("#rock"),
+        document.querySelector("#paper"), 
+        document.querySelector("#scissors")
+    ];
+
+    for (button of buttonArray) {
+        userButtons.removeChild(button);
+    };
+    
+    // Clear score and icons
+    let scoreUI = document.querySelector("div.scoreUI");
+
+    // Clear text
+    let body = document.querySelector("body");
+
+    body.removeChild(document.querySelector("#weaponText"));
+    body.removeChild(document.querySelector("#roundStatus"));
+
 };
 
 
 // Full Game function
+let pScore = 0;
+let cScore = 0;
 
-function playGame() {
-    let playerScore = 0;
-    let cpuScore = 0;
-
-    getPlayerChoice()
-    
-    // while (playerScore < 5 && cpuScore < 5) {
-
-    //     getPlayerChoice()
-        
-    //     let result = playRound(getComputerChoice(), getPlayerChoice());
-
-    //     if (result === 'player win') {
-    //         playerScore++;
-    //     } else if (result === 'cpu win') {
-    //         cpuScore++;
-    //     }
-
-    //     console.log(`Player Score: ${playerScore} CPU Score: ${cpuScore}`)
-    // }
-
-    // if (playerScore === 5) {
-    //     console.log('Congrats! You\'ve won the game!')
-    // } else if (cpuScore === 5) {
-    //     console.log('Game over! You lost :(')
-    // }
-    
-
-};
+playGame(); 
 
 
 
-playGame()
+
